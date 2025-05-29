@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INTELIQ Қосымшалары</title>
+  <link rel="icon" href="images/thumb1.jpeg" type="image/jpeg">
+  <style>
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #000000;
+      --card-bg: #f4f4f4;
+      --accent-color: #2980b9;
+      --secondary-color: #0d6e44;
+    }
+
+    body.dark-mode {
+      --bg-color: #121212;
+      --text-color: #ffffff;
+      --card-bg: #1e1e1e;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      transition: background 0.3s, color 0.3s;
+    }
+    .header {
+      position: relative;
+      text-align: center;
+      padding: 60px 20px 40px;
+      background: linear-gradient(135deg, #2c2c2c, #1a1a1a);
+      animation: fadeIn 2s ease-in-out;
+    }
+    .logo {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 20px;
+      animation: floatLogo 4s ease-in-out infinite;
+    }
+    @keyframes floatLogo {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+    .header h1 {
+      font-size: 36px;
+      margin: 10px 0;
+    }
+    .moving-text {
+      font-size: 20px;
+      color: var(--secondary-color);
+      overflow: hidden;
+      white-space: nowrap;
+      position: relative;
+      height: 30px;
+      margin-top: 10px;
+    }
+    .moving-text span {
+      position: absolute;
+      animation: moveText 10s infinite linear;
+    }
+    @keyframes moveText {
+      0% { left: 100%; opacity: 0; }
+      20% { left: 50%; opacity: 1; }
+      50% { left: 50%; opacity: 1; }
+      80% { left: -50%; opacity: 0; }
+      100% { left: -100%; opacity: 0; }
+    }
+    .app-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 40px 20px;
+    }
+    .app-card {
+      background: var(--card-bg);
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      width: 280px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeInCard 1s ease-in-out forwards;
+    }
+    .app-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+    .app-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .app-card .info {
+      padding: 15px;
+    }
+    .app-card h2 {
+      font-size: 20px;
+      margin: 0;
+    }
+    .app-card p {
+      margin: 10px 0;
+    }
+    .app-card a {
+      display: inline-block;
+      padding: 8px 15px;
+      background: var(--accent-color);
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #ccc;
+      background: #181818;
+    }
+    @keyframes fadeInCard {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    #ai-helper button {
+      cursor: pointer;
+    }
+    #modal-frame {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      height: 80%;
+      z-index: 1000;
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+    #modal-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    #modal-close {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      background: red;
+      color: white;
+      padding: 5px 10px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    .theme-toggle {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      z-index: 9999;
+      padding: 10px 20px;
+      background: #2980b9;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <button class="theme-toggle" onclick="toggleTheme()">🌙/☀️</button>
+
+  <div class="header">
+    <img src="images/thumb1.jpeg" alt="INTELIQ Logo" class="logo">
+    <h1>Менің Мобильді Қосымшаларым</h1>
+    <div class="moving-text">
+      
+    </div>
+  </div>
+
+  <main class="app-grid">
+    <div class="app-card">
+      <img src="images/app1.jpeg" alt="SuperApp">
+      <div class="info">
+        <h2>SuperApp</h2>
+        <p>Әртүрлі мүмкіндіктері бар мектеп оқушыларына арналған қосымша.</p>
+        <a href="app1.html">Толығырақ</a>
+      </div>
+    </div>
+    <div class="app-card">
+      <img src="images/app2.jpeg" alt="QuizMath">
+      <div class="info">
+        <h2>QuizMath</h2>
+        <p>Қосуға арналған қызықты тапсырмалар.</p>
+        <a href="app2.html">Толығырақ</a>
+      </div>
+    </div>
+    <div class="app-card">
+      <img src="images/app3.jpeg" alt="MathQuizApp">
+      <div class="info">
+        <h2>MathQuizApp</h2>
+        <p>Амалдармен жарысып, жеңімпаз болыңыз!</p>
+        <a href="app3.html">Толығырақ</a>
+      </div>
+    </div>
+    <div class="app-card">
+      <img src="images/app4.jpeg" alt="IQquizApp">
+      <div class="info">
+        <h2>IQquizApp</h2>
+        <p>100 сұрақ арқылы біліміңізді сынаңыз.</p>
+        <a href="app4.html">Толығырақ</a>
+      </div>
+    </div>
+   
+    </div>
+  </main>
+
+  <footer>
+    <button onclick="openModal('contact.html')">Байланыс</button>
+    <button onclick="openModal('notify.html')">Хабарландыру</button><br><br>
+    &copy; 2025 | INTELIQ — Saipolla Askhat
+  </footer>
+
+  <div id="ai-helper" style="position:fixed;bottom:30px;right:30px;z-index:999;">
+    <button onclick="toggleHelper()" style="background:#2980b9;color:#fff;padding:10px 20px;border:none;border-radius:10px;font-weight:bold;box-shadow:0 0 10px rgba(0,0,0,0.2);">🧠 Көмекші</button>
+    <div id="helper-box" style="display:none;margin-top:10px;background:white;border-radius:10px;padding:15px;box-shadow:0 0 10px rgba(0,0,0,0.1);width:300px;">
+      <p style="margin:0;font-weight:bold;">Сұрағыңызды жазыңыз:</p>
+      <input id="user-question" type="text" placeholder="мысалы: SuperApp не істейді?" style="width:100%;margin-top:10px;padding:8px;border-radius:5px;border:1px solid #ccc;">
+      <button onclick="answerQuestion()" style="margin-top:10px;background:#0d6e44;color:white;padding:8px 15px;border:none;border-radius:5px;font-weight:bold;">Жауап алу</button>
+      <div id="answer" style="margin-top:15px;color:#333;"></div>
+    </div>
+  </div>
+
+  <div id="modal-frame">
+    <button id="modal-close" onclick="closeModal()">Жабу</button>
+    <iframe id="modal-iframe"></iframe>
+  </div>
+
+  <script>
+    function toggleHelper() {
+      const box = document.getElementById('helper-box');
+      box.style.display = box.style.display === 'none' ? 'block' : 'none';
+    }
+    function answerQuestion() {
+      const q = document.getElementById('user-question').value.toLowerCase();
+      const a = document.getElementById('answer');
+      let response = "Кешіріңіз, бұл сұраққа жауап бере алмаймын.";
+      if (q.includes("superapp")) {
+        response = "SuperApp – мектеп оқушыларына арналған әртүрлі мүмкіндіктері бар қосымша.";
+      } else if (q.includes("quizmath")) {
+        response = "QuizMath – қосу амалдарына арналған қызықты тапсырмалар жиынтығы.";
+      } else if (q.includes("mathquizapp")) {
+        response = "MathQuizApp – амалдарды жылдам орындауға көмектесетін бәсекелі ойын.";
+      } else if (q.includes("iqquizapp")) {
+        response = "IQquizApp – 100 сұрақ арқылы логикалық ойлауыңызды тексеретін қосымша.";
+      } else if (q.includes("roulette")) {
+        response = "RouletteImage – сөздер мен суреттер айналатын қызықты рулетка(жуырда!).";
+      } else if (q.includes("қате") || q.includes("ашылмайды")) {
+        response = "Қосымшалар ашылмай жатса, сілтемені қайта тексеріңіз немесе интернет байланысын қарап көріңіз.";
+      } else if (q.includes("жұмыс істемейді") || q.includes("бұзылды")) {
+        response = "Жұмыс істемесе, браузерді жаңартып көріңіз немесе қосымшаны қайта іске қосыңыз.";
+      } else if (q.includes("қандай қосымша")) {
+        response = "Сайтта 5 түрлі қосымша бар: SuperApp, QuizMath, MathQuizApp, IQquizApp және RouletteImage.";
+      }
+      a.innerText = response;
+    }
+
+    function openModal(page) {
+      document.getElementById('modal-iframe').src = page;
+      document.getElementById('modal-frame').style.display = 'block';
+    }
+    function closeModal() {
+      document.getElementById('modal-frame').style.display = 'none';
+      document.getElementById('modal-iframe').src = '';
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
+    }
+  </script>
+</body>
+</html>
