@@ -206,10 +206,10 @@
       </div>
     </div>
     <div class="app-card">
-      <img src="images/app3.jpeg" alt="MathQuizApp">
+      <img src="images/app3.jpeg" alt="GameMath">
       <div class="info">
-        <h2>MathQuizApp</h2>
-        <p>Амалдармен жарысып, жеңімпаз болыңыз!</p>
+        <h2>GameMath</h2>
+        <p>Математикалық ойлау қабілетіңізді арттырыңыз</p>
         <a href="app3.html">Толығырақ</a>
       </div>
     </div>
@@ -254,7 +254,7 @@
     function answerQuestion() {
       const q = document.getElementById('user-question').value.toLowerCase();
       const a = document.getElementById('answer');
-      let response = "Кешіріңіз, бұл сұраққа жауап бере алмаймын.";
+      let response = "Кешіріңіз, бұл сұраққа жауап бере алмаймын/Тек осы сайт туралы сұрақ қоя аласыз(Сайттың ашылған күні:21.05.2025)";
       if (q.includes("superapp")) {
         response = "SuperApp – мектеп оқушыларына арналған әртүрлі мүмкіндіктері бар қосымша.";
       } else if (q.includes("quizmath")) {
@@ -270,7 +270,11 @@
       } else if (q.includes("жұмыс істемейді") || q.includes("бұзылды")) {
         response = "Жұмыс істемесе, браузерді жаңартып көріңіз немесе қосымшаны қайта іске қосыңыз.";
       } else if (q.includes("қандай қосымша")) {
-        response = "Сайтта 5 түрлі қосымша бар: SuperApp, QuizMath, MathQuizApp, IQquizApp және RouletteImage.";
+        response = "Сайтта 4 түрлі қосымша бар: SuperApp, QuizMath, MathQuizApp, IQquizApp ";
+      } else if (q.includes("?")) {
+        response = "Толықтырып жазуыңыз сұралады өтінемін, тек осы сайт туралы сұрақтар қойсаңыз болады. ";
+      } else if (q.includes("кім жасады?") || q.includes("Кім ашты?")) {
+        response = "Бұл сайтты және мобильді қосымшаларды Сайполла Асхат құрды барлық құқық қорғалған";
       }
       a.innerText = response;
     }
